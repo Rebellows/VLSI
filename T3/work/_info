@@ -1,0 +1,79 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2025.3 2025.09, Sep 15 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/23111573/Downloads/T3
+T_opt
+!i145 1
+!i144 0
+!s110 1790380333
+V=[]M7QGVJNEMY;TV]ON=`2
+04 18 4 work receptor_padrao_tb fast 0
+=1-d09466db3266-6ab7092c-ec1dd-1b62
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2025.3;82
+vreceptor_padrao
+2./receptor_padrao.sv
+Z3 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
+Z4 !s110 1790380332
+!i10b 1
+!s100 S_j:l4Eid8P6H0idQ^B5[0
+I>5kge;_`Z1kA8gc[1lmQ`3
+S1
+R1
+w1790380014
+8./receptor_padrao.sv
+F./receptor_padrao.sv
+!i122 0
+L0 1 148
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2025.3;82
+r1
+!s85 0
+31
+Z7 !s108 1790380332.000000
+!s107 ./receptor_padrao.sv|
+!s90 ./receptor_padrao.sv|
+!i113 0
+Z8 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vreceptor_padrao_tb
+2./receptor_padrao_tb.sv
+R3
+R4
+!i10b 1
+!s100 cY9TTelCPf83]9ZoG?[X?3
+IR?ESanl9;1EKEQUNYTDKJ2
+S1
+R1
+w1790380326
+8./receptor_padrao_tb.sv
+F./receptor_padrao_tb.sv
+!i122 1
+L0 3 82
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 ./receptor_padrao_tb.sv|
+!s90 ./receptor_padrao_tb.sv|
+!i113 0
+R8
+R2

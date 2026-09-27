@@ -8,10 +8,12 @@ module receptor_padrao (
 );
 
     logic [5:0] count_bits = 0;
-    logic [5:0] count_sync = 0;
+    logic [1:0] count_sync = 0;
 
     logic [7:0] sync_word = 8'b10100101;
     logic [7:0] buffer = 0;
+    logic [7:0] next_buffer;
+    logic discard_payload = 0;
 
     typedef enum logic [1:0] {
         IDLE            = 2'b00,
@@ -20,120 +22,141 @@ module receptor_padrao (
         READING_PAYLOAD = 2'b11
     } state_t;
 
-    state_t current_state = IDLE, next_state = IDLE;
+    state_t current_state = IDLE;
+    state_t next_state = IDLE;
+
+    assign next_buffer = {buffer[6:0], data_sr};
 
     always_ff @(posedge clk or posedge rst) begin
-        if (rst) begin
+        if (rst)
             current_state <= IDLE;
-        end else begin
-            current_state <= next_state; 
-        end
+        else
+            current_state <= next_state;
     end
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
-            count_bits <= 0;
-            count_sync <= 0;
-            data_pl_en <= 0;
-            sync       <= 0;
-            data_pl    <= 8'b0;
-            buffer     <= 8'b0;
+            count_bits      <= 0;
+            count_sync      <= 0;
+            data_pl_en      <= 0;
+            sync            <= 0;
+            data_pl         <= 8'b0;
+            buffer          <= 8'b0;
+            discard_payload <= 0;
         end else begin
-            buffer <= {buffer[6:0], data_sr};
-            count_bits++;
+            buffer     <= next_buffer;
             data_pl_en <= 0;
 
             case (current_state)
 
                 IDLE: begin
-                    sync <= 0;
+                    sync       <= 0;
 
-                    if (buffer == sync_word) begin
-                        count_sync <= 1; 
-                        count_bits <= 0; 
+                    if (count_sync == 1) begin
+                        count_bits <= count_bits + 1'b1;
+                    end else if (next_buffer == sync_word) begin
+                        count_bits <= 0;
+                        count_sync <= 1;
+                    end else begin
+                        count_bits <= 0;
                     end
                 end
 
                 WAIT_SYNC: begin
                     sync <= 0;
 
-                    if (count_bits == 48) begin
-                        if (buffer == sync_word) begin
-                            count_sync++;
+                    if (count_bits == 6'd47) begin
+                        count_bits <= 0;
+
+                        if (next_buffer == sync_word) begin
+                            if (count_sync == 2) begin
+                                count_sync      <= 3;
+                                sync            <= 1;
+                                discard_payload <= 1;
+                            end else begin
+                                count_sync <= count_sync + 1'b1;
+                            end
                         end else begin
                             count_sync <= 0;
                         end
-                        count_bits <= 0;
+                    end else begin
+                        count_bits <= count_bits + 1'b1;
                     end
                 end
 
                 READING_SYNC: begin
-                    if (count_bits == 8) begin
-                        if (buffer == sync_word) begin
-                            sync <= 1;
-                            count_sync <= 3;
-                        end else begin
+                    sync <= 1;
+
+                    if (count_bits == 6'd7) begin
+                        count_bits <= 0;
+
+                        if (next_buffer != sync_word) begin
                             count_sync <= 0;
                             sync       <= 0;
                         end
-                        count_bits <= 0;
+                    end else begin
+                        count_bits <= count_bits + 1'b1;
                     end
                 end
 
                 READING_PAYLOAD: begin
                     sync <= 1;
 
-                    if (count_bits % 8 == 0) begin
-                        data_pl    <= buffer;
+                    if (!discard_payload && (((count_bits + 1'b1) % 8) == 0)) begin
+                        data_pl    <= next_buffer;
                         data_pl_en <= 1;
                     end
 
-                    if (count_bits == 40) count_bits <= 0;
-                    // $display("Time: %0t | Byte Captured! count_bits = %0d | buffer = 0x%h", 
-                    //         $time, count_bits, {buffer[6:0], data_sr});
+                    if (count_bits == 6'd39) begin
+                        count_bits      <= 0;
+                        discard_payload <= 0;
+                    end else begin
+                        count_bits <= count_bits + 1'b1;
+                    end
+                end
 
+                default: begin
+                    count_bits      <= 0;
+                    count_sync      <= 0;
+                    discard_payload <= 0;
+                    sync            <= 0;
                 end
 
             endcase
         end
     end
 
-    always_comb begin 
-        
+    always_comb begin
+        next_state = current_state;
+
         case (current_state)
 
             IDLE: begin
-                if (count_sync == 1) begin
+                if (count_sync == 1)
                     next_state = WAIT_SYNC;
-                end else begin
-                    next_state = IDLE;
-                end
             end
 
             WAIT_SYNC: begin
-                if (count_bits == 48) begin
-                    if (buffer == sync_word) begin
-                        if (count_sync == 3) next_state = READING_PAYLOAD;
-                    end else begin
-                        next_state = IDLE; 
-                    end
-                end            
+                if (count_bits == 6'd47) begin
+                    if (next_buffer == sync_word && count_sync == 2)
+                        next_state = READING_PAYLOAD;
+                    else if (next_buffer != sync_word)
+                        next_state = IDLE;
+                end
             end
 
             READING_SYNC: begin
-                if (count_bits == 8) begin
-                    if (buffer == sync_word) begin
+                if (count_bits == 6'd7) begin
+                    if (next_buffer == sync_word)
                         next_state = READING_PAYLOAD;
-                    end else begin
+                    else
                         next_state = IDLE;
-                    end
                 end
             end
 
-            READING_PAYLOAD: begin             
-                if (count_bits == 40) begin
+            READING_PAYLOAD: begin
+                if (count_bits == 6'd39)
                     next_state = READING_SYNC;
-                end
             end
 
             default: begin
@@ -141,7 +164,6 @@ module receptor_padrao (
             end
 
         endcase
-
         // if (next_state != current_state) $display("C:%d N:%d DATA: %h", current_state, next_state, data_pl);
         // if (count_sync > 3) $display("SYNC: %d", count_sync);
     end

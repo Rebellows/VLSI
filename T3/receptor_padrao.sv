@@ -46,8 +46,7 @@ module receptor_padrao (
             case (current_state)
 
                 IDLE: begin
-                    sync       <= 0;
-                    data_pl    <= 8'b0; 
+                    sync <= 0;
 
                     if (buffer == sync_word) begin
                         count_sync <= 1; 
@@ -56,8 +55,7 @@ module receptor_padrao (
                 end
 
                 WAIT_SYNC: begin
-                    sync       <= 0;
-                    data_pl    <= 8'b0;
+                    sync <= 0;
 
                     if (count_bits == 48) begin
                         if (buffer == sync_word) begin
@@ -85,12 +83,15 @@ module receptor_padrao (
                 READING_PAYLOAD: begin
                     sync <= 1;
 
-                    if (count_bits % 8 == 0 && count_bits > 0) begin
+                    if (count_bits % 8 == 0) begin
                         data_pl    <= buffer;
                         data_pl_en <= 1;
                     end
 
                     if (count_bits == 40) count_bits <= 0;
+                    // $display("Time: %0t | Byte Captured! count_bits = %0d | buffer = 0x%h", 
+                    //         $time, count_bits, {buffer[6:0], data_sr});
+
                 end
 
             endcase
@@ -113,7 +114,6 @@ module receptor_padrao (
                 if (count_bits == 48) begin
                     if (buffer == sync_word) begin
                         if (count_sync == 3) next_state = READING_PAYLOAD;
-                        else next_state = WAIT_SYNC;
                     end else begin
                         next_state = IDLE; 
                     end
@@ -130,7 +130,7 @@ module receptor_padrao (
                 end
             end
 
-            READING_PAYLOAD: begin
+            READING_PAYLOAD: begin             
                 if (count_bits == 40) begin
                     next_state = READING_SYNC;
                 end
@@ -142,7 +142,8 @@ module receptor_padrao (
 
         endcase
 
-        // if (next_state != current_state) $display("C:%d N:%d", current_state, next_state);
+        // if (next_state != current_state) $display("C:%d N:%d DATA: %h", current_state, next_state, data_pl);
+        // if (count_sync > 3) $display("SYNC: %d", count_sync);
     end
 
 endmodule

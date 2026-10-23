@@ -1,4 +1,7 @@
 module ps2_driver
+#(
+    parameter int EN_CYCLES = 1_000_000
+)
 (
     input  logic clock_in,
     input  logic reset_in,
@@ -67,23 +70,41 @@ module ps2_driver
         WRITING         = 2'b11
     } state_t;
 
-    state_t current_state = IDLE, next_state = IDLE;
+    state_t current_state, next_state;
 
-    logic [3:0] bit_counter;
-    logic xor_result, writed;
-    logic [7:0] buffer;
-    logic [19:0] timing_counter;
+    logic [3:0]  bit_counter;
+    logic        xor_result, writed;
+    logic [7:0]  buffer;
+    logic [$clog2(EN_CYCLES+2)-1:0] timing_counter;   
+
+    logic [2:0] clk_sync;
+    logic [1:0] data_sync;
+    logic       ps2_fall;   
+    logic       data_s;     
 
     always_ff @(posedge clock_in or posedge reset_in) begin
-        if (rst) begin
-            current_state  <= IDLE;
+        if (reset_in) begin
+            clk_sync  <= 3'b111;   
+            data_sync <= 2'b11;
         end else begin
-            current_state <= next_state; 
+            clk_sync  <= {clk_sync[1:0], clock_ps2};
+            data_sync <= {data_sync[0], data_ps2};
         end
     end
 
+    assign ps2_fall = clk_sync[2] & ~clk_sync[1];
+    assign data_s   = data_sync[1];
+
     always_ff @(posedge clock_in or posedge reset_in) begin
-        if (rst) begin
+        if (reset_in) begin
+            current_state  <= IDLE;
+        end else begin
+            current_state <= next_state;
+        end
+    end
+    
+    always_ff @(posedge clock_in or posedge reset_in) begin
+        if (reset_in) begin
             bit_counter    <= 0;
             xor_result     <= 0;
             buffer         <= 0;
@@ -101,28 +122,34 @@ module ps2_driver
                     buffer         <= 0;
                     timing_counter <= 0;
                     data_p_en      <= 0;
-                    data_p         <= 0;
                     writed         <= 0;
                 end
 
                 READING: begin
-                    if (bit_counter < 8) 
-                    begin
-                        xor_result <= xor_result ^ data_ps2;
-                        buffer[bit_counter] <= data_ps2;
+                    if (ps2_fall) begin
+                        if (bit_counter < 8) begin
+                            xor_result <= xor_result ^ data_s;
+                            buffer[bit_counter] <= data_s;
+                        end
+                        bit_counter <= bit_counter + 1;
                     end
-                    bit_counter <= bit_counter + 1;
-                    
                 end
 
                 WRITE: begin
-                    data_p <= buffer;
-                    data_p_en <= 1;
-                    writed <= 1;
+                    if (!writed) begin
+                        data_p         <= scancode_to_ascii(buffer);
+                        data_p_en      <= 1;
+                        writed         <= 1;
+                        timing_counter <= 1;   
+                    end else begin
+                        if (timing_counter == EN_CYCLES) data_p_en <= 0;
+                        else timing_counter <= timing_counter + 1;
+                    end
                 end
 
                 WRITING: begin
-                    timing_counter <= timing_counter + 1;
+                    if (timing_counter == EN_CYCLES) data_p_en <= 0;
+                    else timing_counter <= timing_counter + 1;
                 end
 
                 default: begin
@@ -131,7 +158,6 @@ module ps2_driver
                     buffer         <= 0;
                     timing_counter <= 0;
                     data_p_en      <= 0;
-                    data_p         <= 0;
                     writed         <= 0;
                 end
 
@@ -139,22 +165,23 @@ module ps2_driver
         end
     end
 
-    always_comb begin 
+    always_comb begin
         next_state = current_state;
 
         case (current_state)
 
             IDLE: begin
-                if (data_ps2 == 0) next_state = READING;
+                if (ps2_fall && (data_s == 0)) next_state = READING;
             end
 
             READING: begin
-                if (bit_counter == 8)
-                begin
-                    if (xor_result != data_ps2) next_state = IDLE;
-                end else if (bit_counter == 9) begin
-                    if (data_ps2) next_state = WRITING;
-                    else next_state = IDLE;
+                if (ps2_fall) begin
+                    if (bit_counter == 8) begin
+                        if (xor_result == data_s) next_state = IDLE;
+                    end else if (bit_counter == 9) begin
+                        if (data_s) next_state = WRITE;
+                        else        next_state = IDLE;
+                    end
                 end
             end
 
@@ -163,7 +190,7 @@ module ps2_driver
             end
 
             WRITING: begin
-                if (timing_counter == 100_000_000) next_state = IDLE;
+                if (timing_counter == EN_CYCLES) next_state = IDLE;
             end
 
             default: begin

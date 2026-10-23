@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module receptor_padrao_tb;
+module ps2_driver_tb;
 
     localparam time CLK_PERIOD = 10ns;
 
@@ -13,9 +13,7 @@ module receptor_padrao_tb;
 
     always #(CLK_PERIOD / 2) clock_in = ~clock_in;
 
-    ps2_driver#(
-        .EN_CYCLES(EN_CYCLES)
-    ) ps2_tb (
+    ps2_driver ps2_tb (
         .clock_in(clock_in),
         .reset_in(reset_in),
         .clock_ps2(clock_ps2),
@@ -64,47 +62,6 @@ module receptor_padrao_tb;
         data_ps2  = 1;
         #100;
     endtask
-
-    task automatic send_ps2_packet(
-            input logic [7:0] data,
-            input logic       parity,
-            input logic       stop_bit
-        );
-            // Start bit (0)
-            clock_ps2 = 1;
-            data_ps2  = 0;
-            #40;
-            clock_ps2 = 0; // Falling edge
-            #40;
-
-            // 8 Data bits (LSB first)
-            for (int i = 0; i < 8; i++) begin
-                clock_ps2 = 1;
-                data_ps2  = data[i];
-                #40;
-                clock_ps2 = 0; // Falling edge
-                #40;
-            end
-
-            // Parity bit
-            clock_ps2 = 1;
-            data_ps2  = parity;
-            #40;
-            clock_ps2 = 0; // Falling edge
-            #40;
-
-            // Stop bit
-            clock_ps2 = 1;
-            data_ps2  = stop_bit;
-            #40;
-            clock_ps2 = 0; // Falling edge
-            #40;
-
-            // Return bus to idle
-            clock_ps2 = 1;
-            data_ps2  = 1;
-            #100;
-        endtask
 
     initial begin
         // Initialize signals

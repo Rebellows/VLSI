@@ -82,22 +82,27 @@ module ps2_driver_tb;
         // Test 1: All Fine (Valid Scancode 8'h1C -> ASCII 'A' = 8'h41)
         // -------------------------------------------------------------
         $display("[%0tns] Test 1: Sending valid packet (8'h1C)", $time);
-        send_ps2_packet(8'h1C, 1'b0, 1'b1);
+        fork
+            send_ps2_packet(8'h1C, 1'b0, 1'b1);
 
-        // Validation for Test 1
-        @(posedge data_p_en);
-        $display("[%0tns] data_p_en asserted. data_p = 0x%0h (Expected: 0x41)", $time, data_p);
-        assert (data_p == 8'h41) else $error("Test 1 FAILED: Expected ASCII 0x41 ('A'), got 0x%0h", data_p);
-        assert (data_p_en == 1)  else $error("Test 1 FAILED: data_p_en should be high");
+            // Validation for Test 1
+            begin
+                @(posedge data_p_en);
+                $display("[%0tns] data_p_en asserted. data_p = 0x%0h (Expected: 0x41)", $time, data_p);
+                assert (data_p == 8'h41) else $error("Test 1 FAILED: Expected ASCII 0x41 ('A'), got 0x%0h", data_p);
+                assert (data_p_en == 1)  else $error("Test 1 FAILED: data_p_en should be high");
 
-        @(negedge data_p_en);
-        $display("[%0tns] Test 1 Completed successfully.", $time);
+                @(negedge data_p_en);
+                $display("[%0tns] Test 1 Completed successfully.", $time);
+            end
+        join
         #200;
 
         // -------------------------------------------------------------
         // Test 2: Parity Wrong (Parity bit = 1 instead of 0)
         // -------------------------------------------------------------
         $display("[%0tns] Test 2: Sending packet with PARITY ERROR", $time);
+
         send_ps2_packet(8'h1C, 1'b1, 1'b1); // Parity bit incorrect
 
         #500;

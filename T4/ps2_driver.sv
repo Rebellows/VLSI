@@ -1,7 +1,4 @@
 module ps2_driver
-#(
-    parameter int EN_CYCLES = 10
-)
 (
     input  logic clock_in,
     input  logic reset_in,
@@ -75,7 +72,6 @@ module ps2_driver
     logic [3:0]  bit_counter;
     logic        xor_result, writed, waited;
     logic [7:0]  buffer;
-    logic [$clog2(EN_CYCLES+2)-1:0] timing_counter;   
 
     logic [2:0] clk_sync;
     logic [1:0] data_sync;
@@ -108,7 +104,6 @@ module ps2_driver
             bit_counter    <= 0;
             xor_result     <= 0;
             buffer         <= 0;
-            timing_counter <= 0;
             data_p_en      <= 0;
             data_p         <= 0;
             writed         <= 0;
@@ -121,7 +116,6 @@ module ps2_driver
                     bit_counter    <= 0;
                     xor_result     <= 0;
                     buffer         <= 0;
-                    timing_counter <= 0;
                     data_p_en      <= 0;
                     writed         <= 0;
                     waited         <= 0;
@@ -142,25 +136,19 @@ module ps2_driver
                         data_p         <= scancode_to_ascii(buffer);
                         data_p_en      <= 1;
                         writed         <= 1;
-                        timing_counter <= 1;
                         waited         <= 0;   
-                    end else begin
-                        if (timing_counter == EN_CYCLES) data_p_en <= 0;
-                        else timing_counter <= timing_counter + 1;
-                    end
+                    end 
                 end
 
                 WRITING: begin
-                    waited <= 1;
-                    if (timing_counter == EN_CYCLES) data_p_en <= 0;
-                    else timing_counter <= timing_counter + 1;
+                    data_p_en <= 0;
+                    waited    <= 1;
                 end
 
                 default: begin
                     bit_counter    <= 0;
                     xor_result     <= 0;
                     buffer         <= 0;
-                    timing_counter <= 0;
                     data_p_en      <= 0;
                     writed         <= 0;
                 end
@@ -181,10 +169,18 @@ module ps2_driver
             READING: begin
                 if (ps2_fall) begin
                     if (bit_counter == 8) begin
-                        if (xor_result == data_s) next_state = IDLE;
-                    end else if (bit_counter == 9) begin
-                        if (data_s) next_state = WRITE;
-                        else        next_state = IDLE;
+                        // Check odd parity: data bits XOR parity must be 1
+                        if (xor_result ^ data_s)
+                            next_state = READING;
+                        else
+                            next_state = IDLE;
+                    end
+                    else if (bit_counter == 9) begin
+                        // Stop bit is valid only when it is 1
+                        if (data_s)
+                            next_state = WRITE;
+                        else
+                            next_state = IDLE;
                     end
                 end
             end

@@ -13,6 +13,10 @@ module ps2_driver_tb;
 
     always #(CLK_PERIOD / 2) clock_in = ~clock_in;
 
+    // Registra se houve pulso em data_p_en (o pulso é curto demais para ser visto depois)
+    int pulsos = 0;
+    always @(posedge data_p_en) pulsos++;
+
     ps2_driver ps2_tb (
         .clock_in(clock_in),
         .reset_in(reset_in),
@@ -85,13 +89,9 @@ module ps2_driver_tb;
         send_ps2_packet(8'h1C, 1'b0, 1'b1);
 
         // Validation for Test 1
-        @(posedge data_p_en);
-        $display("[%0tns] data_p_en asserted. data_p = 0x%0h (Expected: 0x41)", $time, data_p);
+        $display("[%0tns] data_p = 0x%0h (Expected: 0x41)", $time, data_p);
+        assert (pulsos == 1)     else $error("Test 1 FAILED: data_p_en nunca pulsou");
         assert (data_p == 8'h41) else $error("Test 1 FAILED: Expected ASCII 0x41 ('A'), got 0x%0h", data_p);
-        assert (data_p_en == 1)  else $error("Test 1 FAILED: data_p_en should be high");
-
-        @(negedge data_p_en);
-        $display("[%0tns] Test 1 Completed successfully.", $time);
         #200;
 
         // -------------------------------------------------------------
@@ -101,7 +101,7 @@ module ps2_driver_tb;
         send_ps2_packet(8'h1C, 1'b1, 1'b1); // Parity bit incorrect
 
         #500;
-        if (data_p_en) begin
+        if (pulsos != 1) begin
             $error("Test 2 FAILED: data_p_en asserted despite parity error!");
         end else begin
             $display("[%0tns] Test 2 Passed: Correctly ignored packet due to parity error.", $time);
@@ -114,7 +114,7 @@ module ps2_driver_tb;
         send_ps2_packet(8'h1C, 1'b0, 1'b0); // Stop bit incorrect
 
         #500;
-        if (data_p_en) begin
+        if (pulsos != 1) begin
             $error("Test 3 FAILED: data_p_en asserted despite stop bit error!");
         end else begin
             $display("[%0tns] Test 3 Passed: Correctly ignored packet due to stop bit error.", $time);

@@ -1,6 +1,6 @@
 module ps2_driver
 #(
-    parameter int EN_CYCLES = 1_000_000
+    parameter int EN_CYCLES = 10
 )
 (
     input  logic clock_in,
@@ -73,7 +73,7 @@ module ps2_driver
     state_t current_state, next_state;
 
     logic [3:0]  bit_counter;
-    logic        xor_result, writed;
+    logic        xor_result, writed, waited;
     logic [7:0]  buffer;
     logic [$clog2(EN_CYCLES+2)-1:0] timing_counter;   
 
@@ -112,6 +112,7 @@ module ps2_driver
             data_p_en      <= 0;
             data_p         <= 0;
             writed         <= 0;
+            waited         <= 0;
         end else begin
 
             case (current_state)
@@ -123,6 +124,7 @@ module ps2_driver
                     timing_counter <= 0;
                     data_p_en      <= 0;
                     writed         <= 0;
+                    waited         <= 0;
                 end
 
                 READING: begin
@@ -140,7 +142,8 @@ module ps2_driver
                         data_p         <= scancode_to_ascii(buffer);
                         data_p_en      <= 1;
                         writed         <= 1;
-                        timing_counter <= 1;   
+                        timing_counter <= 1;
+                        waited         <= 0;   
                     end else begin
                         if (timing_counter == EN_CYCLES) data_p_en <= 0;
                         else timing_counter <= timing_counter + 1;
@@ -148,6 +151,7 @@ module ps2_driver
                 end
 
                 WRITING: begin
+                    waited <= 1;
                     if (timing_counter == EN_CYCLES) data_p_en <= 0;
                     else timing_counter <= timing_counter + 1;
                 end
@@ -190,7 +194,7 @@ module ps2_driver
             end
 
             WRITING: begin
-                if (timing_counter == EN_CYCLES) next_state = IDLE;
+                if (waited) next_state = IDLE;
             end
 
             default: begin

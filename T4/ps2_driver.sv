@@ -136,8 +136,10 @@ module ps2_driver
                         data_p         <= scancode_to_ascii(buffer);
                         data_p_en      <= 1;
                         writed         <= 1;
-                        waited         <= 0;   
-                    end 
+                        waited         <= 0;
+                    end else begin
+                        data_p_en      <= 0;
+                    end
                 end
 
                 WRITING: begin

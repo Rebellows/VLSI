@@ -1,7 +1,7 @@
 # ----------------------------------------------------------------------
 # ps2_driver.sdc
-# UNITS: the ASAP7 libraries use picoseconds (time_unit "1ps"), and the
-# SDC values are read in library units. All times below are in ps.
+# UNITS: ASAP7 libraries use picoseconds, so all times below are in ps
+# (the lab uses "create_clock -period 1000" for 1 ns).
 # Master clock: 100 MHz = 10 ns = 10000 ps
 # ----------------------------------------------------------------------
 
@@ -14,17 +14,14 @@ set_clock_transition  10  [get_clocks clk_in]
 # It is sampled as a normal data input through a 2-FF synchronizer,
 # so it is not declared with create_clock.
 
-# Asynchronous inputs: reset_in, clock_ps2 and data_ps2 have no fixed phase
-# relation with clock_in. They enter synchronizers (or the async reset pin),
-# so timing is not analyzed on these paths.
-set_false_path -from [get_ports {reset_in clock_ps2 data_ps2}]
+# Input and output delays, same approach as lab 2 (30% of the clock period,
+# the lab uses 300 ps on a 1000 ps clock). This avoids unconstrained paths
+# from the inputs (reset_in, clock_ps2, data_ps2) and to the outputs.
+set_input_delay  -clock clk_in 3000 [get_ports {reset_in clock_ps2 data_ps2}]
+set_output_delay -clock clk_in 3000 [get_ports {data_p[*] data_p_en}]
 
-# Input slew on the non-clock inputs (ps)
+# Input slew (ps)
 set_input_transition 20 [get_ports {reset_in clock_ps2 data_ps2}]
-
-# Outputs are registered inside the block. Assume 2 ns (2000 ps) of external
-# logic/setup time at the receiving block.
-set_output_delay -clock clk_in 2000 [get_ports {data_p[*] data_p_en}]
 
 # Output load (ASAP7 capacitance unit is fF). Uncomment if your flow needs it.
 # set_load 1.0 [get_ports {data_p[*] data_p_en}]

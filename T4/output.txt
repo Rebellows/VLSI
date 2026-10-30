@@ -1,35 +1,20 @@
 @genus:root: 1> source ../scripts/genus_ps2.tcl
-Sourcing '../scripts/genus_ps2.tcl' (Fri Oct 30 19:53:51 -03 2026)...
+Sourcing '../scripts/genus_ps2.tcl' (Fri Oct 30 20:27:16 -03 2026)...
 #@ Begin verbose source ../scripts/genus_ps2.tcl
-@file(genus_ps2.tcl) 3: set RTL_PATH		"../sources/"
-@file(genus_ps2.tcl) 4: set LIB_PATH 		"../lib/"
-@file(genus_ps2.tcl) 5: set LEF_PATH		"../lef/scaled/"
-@file(genus_ps2.tcl) 6: set TLEF_PATH		"../techlef/"
-@file(genus_ps2.tcl) 7: set QRC_PATH 		"../qrc/"
-@file(genus_ps2.tcl) 8: set DESIGN 		"ps2_driver"
-@file(genus_ps2.tcl) 10: set LIB_LIST { asap7sc7p5t_AO_LVT_TT_nldm_211120.lib asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib asap7sc7p5t_OA_LVT_TT_nldm_211120.lib asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib }
-@file(genus_ps2.tcl) 12: set LEF_LIST { asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef}
-@file(genus_ps2.tcl) 14: set QRC_FILE "qrcTechFile_typ03_scaled4xV06"
-@file(genus_ps2.tcl) 16: set RTL_LIST {ps2_driver.sv}
-@file(genus_ps2.tcl) 18: set_db init_lib_search_path "$LIB_PATH $LEF_PATH $TLEF_PATH"
+@file(genus_ps2.tcl) 2: set RTL_PATH        "../sources/"
+@file(genus_ps2.tcl) 3: set LIB_PATH        "../lib/"
+@file(genus_ps2.tcl) 4: set LEF_PATH        "../lef/scaled/"
+@file(genus_ps2.tcl) 5: set TLEF_PATH       "../techlef/"
+@file(genus_ps2.tcl) 6: set QRC_PATH        "../qrc/"
+@file(genus_ps2.tcl) 7: set DESIGN          "ps2_driver"
+@file(genus_ps2.tcl) 9: set LIB_LIST { asap7sc7p5t_AO_LVT_TT_nldm_211120.lib asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib asap7sc7p5t_OA_LVT_TT_nldm_211120.lib asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib }
+@file(genus_ps2.tcl) 11: set LEF_LIST { asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef }
+@file(genus_ps2.tcl) 13: set QRC_FILE "qrcTechFile_typ03_scaled4xV06"
+@file(genus_ps2.tcl) 14: set RTL_LIST {ps2_driver.sv}
+@file(genus_ps2.tcl) 17: set_db init_lib_search_path "$LIB_PATH $LEF_PATH $TLEF_PATH"
   Setting attribute of root '/': 'init_lib_search_path' = ../lib/ ../lef/scaled/ ../techlef/
-@file(genus_ps2.tcl) 19: set_db init_hdl_search_path $RTL_PATH
+@file(genus_ps2.tcl) 18: set_db init_hdl_search_path $RTL_PATH
   Setting attribute of root '/': 'init_hdl_search_path' = ../sources/
-@file(genus_ps2.tcl) 20: set_db / .library "$LIB_LIST"
-
-Threads Configured:4
-Info    : Created nominal operating condition. [LBR-412]
-        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_AO_LVT_TT_nldm_211120.lib'.
-        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
-Info    : Created nominal operating condition. [LBR-412]
-        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib'.
-Info    : Created nominal operating condition. [LBR-412]
-        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_OA_LVT_TT_nldm_211120.lib'.
-Info    : Created nominal operating condition. [LBR-412]
-        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib'.
-Info    : Created nominal operating condition. [LBR-412]
-        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib'.
-  Setting attribute of root '/': 'library' =  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib asap7sc7p5t_OA_LVT_TT_nldm_211120.lib asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib 
 @file(genus_ps2.tcl) 21: set_db lef_library "$LEF_LIST"
 Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
         : Via 'VIA9Pad' has no resistance value.
@@ -127,52 +112,27 @@ Warning : The variant range of wire parameters is too large. An example of wire 
         : The variant range (0.072, 8) of 'MINSPACING' for layers 'M1' and 'Pad' is too large.
 Warning : The value of the wire parameter is too big. [PHYS-13]
         : The 'MINSPACING: 8' of layer 'Pad' is much bigger than others.
-  Libraries have 167 usable logic and 23 usable sequential lib-cells.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell DECAPx10_ASAP7_75t_L cannot be found in library.
-        : Ensure that the proper library files are available and have been imported.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell DECAPx1_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell DECAPx2_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell DECAPx2b_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell DECAPx4_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell DECAPx6_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell FILLER_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell FILLERxp5_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell TAPCELL_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell TAPCELL_WITH_FILLER_ASAP7_75t_L cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell A2O1A1Ixp33_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell A2O1A1O1Ixp25_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell AND2x2_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell AND2x4_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell AND2x6_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell AND3x1_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell AND3x2_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell AND3x4_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell AND4x1_ASAP7_75t_R cannot be found in library.
-Warning : Physical cell not defined in library. [PHYS-279]
-        : The physical (LEF) cell AND4x2_ASAP7_75t_R cannot be found in library.
-Warning : Maximum message print count reached. [MESG-11]
-        : Maximum print count of '20' reached for message 'PHYS-279'.
   Setting attribute of root '/': 'lef_library' = /home/23111573@portoalegre.pucrsnet.br/run/../techlef//asap7_tech_4x_201209.lef /home/23111573@portoalegre.pucrsnet.br/run/../lef/scaled//asap7sc7p5t_28_L_4x_220121a.lef /home/23111573@portoalegre.pucrsnet.br/run/../lef/scaled//asap7sc7p5t_28_R_4x_220121a.lef /home/23111573@portoalegre.pucrsnet.br/run/../lef/scaled//asap7sc7p5t_28_SL_4x_220121a.lef
-@file(genus_ps2.tcl) 22: set_db qrc_tech_file "$QRC_PATH/$QRC_FILE"
+@file(genus_ps2.tcl) 24: set_db / .library "$LIB_LIST"
+
+Threads Configured:4
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_AO_LVT_TT_nldm_211120.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_OA_LVT_TT_nldm_211120.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.700000, 25.000000) in library 'asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib'.
+  Libraries have 167 usable logic and 23 usable sequential lib-cells.
+Warning : Inconsistency detected among the units specified in the timing libraries being used. [LBR-714]
+        : Libraries with inconsistent time/capacitance units were loaded.
+        : Default system time/capacitance unit will be used.
+  Setting attribute of root '/': 'library' =  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib asap7sc7p5t_OA_LVT_TT_nldm_211120.lib asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib 
+@file(genus_ps2.tcl) 27: set_db qrc_tech_file "$QRC_PATH/$QRC_FILE"
 
   According to qrc_tech_file, there are total 10 routing layers [ V(5) / H(5) ]
 
@@ -188,8 +148,8 @@ Warning : Minimum width of layer in LEF does not match minimum width of layer in
 Warning : Minimum width of layer in LEF does not match minimum width of layer in cap table. [PHYS-25]
         : After applying shrink factor, minimum width of layer 'Pad' in lef is '8', minimum width of layer 'M9' in technology file is '0.16'.
   Setting attribute of root '/': 'qrc_tech_file' = /home/23111573@portoalegre.pucrsnet.br/run/../qrc//qrcTechFile_typ03_scaled4xV06
-@file(genus_ps2.tcl) 24: read_hdl -sv ${RTL_LIST}
-@file(genus_ps2.tcl) 25: elaborate $DESIGN
+@file(genus_ps2.tcl) 30: read_hdl -sv ${RTL_LIST}
+@file(genus_ps2.tcl) 31: elaborate $DESIGN
 Info    : Elaborating Design. [ELAB-1]
         : Elaborating top-level block 'ps2_driver' from file '../sources/ps2_driver.sv'.
 Warning : Unreachable statements for case item. [CDFG-472]
@@ -215,21 +175,21 @@ Starting clip the non-user hierarchies [v2.0] (stage: post_elab, startdef: ps2_d
 Completed clip the non-user hierarchies (accepts: 0, rejects: 0, runtime: 0.000s)
 UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
 UM:*                                                                   elaborate
-@file(genus_ps2.tcl) 28: read_sdc ${RTL_PATH}${DESIGN}.sdc
+@file(genus_ps2.tcl) 34: read_sdc ${RTL_PATH}${DESIGN}.sdc
 Statistics for commands executed by read_sdc:
  "create_clock"             - successful      1 , failed      0 (runtime  0.01)
  "get_clocks"               - successful      2 , failed      0 (runtime  0.00)
  "get_ports"                - successful      4 , failed      0 (runtime  0.01)
  "set_clock_transition"     - successful      1 , failed      0 (runtime  0.00)
  "set_clock_uncertainty"    - successful      1 , failed      0 (runtime  0.00)
- "set_input_delay"          - successful      1 , failed      0 (runtime  0.00)
+ "set_input_delay"          - successful      1 , failed      0 (runtime  0.01)
  "set_input_transition"     - successful      1 , failed      0 (runtime  0.00)
  "set_output_delay"         - successful      1 , failed      0 (runtime  0.00)
 read_sdc completed in 00:00:00 (hh:mm:ss)
-@file(genus_ps2.tcl) 33: syn_generic
+@file(genus_ps2.tcl) 37: syn_generic
 ##Generic Timing Info for library domain: _default_ typical gate delay: 20.2 ps std_slew: 4.3 ps std_load: 1.0 fF
 Starting mux data reorder optimization [v1.0] (stage: pre_to_gen_setup, startdef: ps2_driver, recur: true)
-Completed mux data reorder optimization (accepts: 0, rejects: 0, runtime: 0.001s)
+Completed mux data reorder optimization (accepts: 0, rejects: 0, runtime: 0.000s)
 Current PLE settings:
 
 Aspect ratio        : 1.000
@@ -299,7 +259,7 @@ stamp 'PBS_Generic-Start' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -380,23 +340,23 @@ Completed Unified Mux Engine Tricks
 --------------------------------------------
 --------------------------------------------
 Starting infer macro optimization [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
-Completed infer macro optimization (accepts: 0, rejects: 9, runtime: 0.001s)
+Completed infer macro optimization (accepts: 0, rejects: 9, runtime: 0.000s)
 Starting decode mux sandwich optimization [v2.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
 Completed decode mux sandwich optimization (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting decode mux optimization [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
 Completed decode mux optimization (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting chop wide muxes [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
-Completed chop wide muxes (accepts: 0, rejects: 0, runtime: 0.000s)
+Completed chop wide muxes (accepts: 0, rejects: 0, runtime: 0.001s)
 Starting common data mux cascade opt [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
 Completed common data mux cascade opt (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting mux input consolidation [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
 Completed mux input consolidation (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting priority mux optimization [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
-Completed priority mux optimization (accepts: 0, rejects: 0, runtime: 0.012s)
+Completed priority mux optimization (accepts: 0, rejects: 0, runtime: 0.010s)
 Starting constant-data mux optimization [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
-Completed constant-data mux optimization (accepts: 0, rejects: 0, runtime: 0.001s)
+Completed constant-data mux optimization (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting chain-to-tree inequality transform [v2.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
-Completed chain-to-tree inequality transform (accepts: 0, rejects: 0, runtime: 0.001s)
+Completed chain-to-tree inequality transform (accepts: 0, rejects: 0, runtime: 0.002s)
 Starting reconvergence optimization [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
 Completed reconvergence optimization (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting logic restructure optimization [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
@@ -412,9 +372,9 @@ Completed common data mux cascade opt (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting mux input consolidation [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
 Completed mux input consolidation (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting optimize datapath elements [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
-Completed optimize datapath elements (accepts: 0, rejects: 0, runtime: 0.000s)
+Completed optimize datapath elements (accepts: 0, rejects: 0, runtime: 0.001s)
 Starting datapath recasting [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
-Completed datapath recasting (accepts: 0, rejects: 0, runtime: 0.001s)
+Completed datapath recasting (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting clip mux common data inputs [v1.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
 Completed clip mux common data inputs (accepts: 0, rejects: 0, runtime: 0.000s)
 Starting clip the non-user hierarchies [v2.0] (stage: pre_rtlopt, startdef: ps2_driver, recur: true)
@@ -582,86 +542,61 @@ Completed mux data reorder optimization (accepts: 0, rejects: 0, runtime: 0.000s
 Starting mux speculation [v1.0] (stage: post_muxopt, startdef: ps2_driver, recur: true)
 Starting speculation optimization
 Completed speculation optimization (accepts:0)
-Completed mux speculation (accepts: 0, rejects: 0, runtime: 0.014s)
+Completed mux speculation (accepts: 0, rejects: 0, runtime: 0.010s)
 ==================================
 Stage : to_generic 
 ==================================
   =================
    Message Summary
   =================
---------------------------------------------------------------------------------
-|    Id    |  Sev   |Count |                   Message Text                    |
---------------------------------------------------------------------------------
-| CDFG-372 |Info    |   20 |Bitwidth mismatch in assignment.                   |
-|          |        |      |Review and make sure the mismatch is               |
-|          |        |      | unintentional. Genus can possibly issue bitwidth  |
-|          |        |      | mismatch warning for explicit assignments present |
-|          |        |      | in RTL as-well-as for implicit assignments        |
-|          |        |      | inferred by the tool. For example, in case of     |
-|          |        |      | enum declaration without value, the tool will     |
-|          |        |      | implicitly assign value to the enum variables. It |
-|          |        |      | also issues the warning for any bitwidth mismatch |
-|          |        |      | that appears in this implicit assignment.         |
-| CDFG-472 |Warning |    2 |Unreachable statements for case item.              |
-| CDFG-769 |Info    |    1 |Identified sum-of-products logic to be optimized   |
-|          |        |      | during syn_generic.                               |
-| CWD-19   |Info    |   12 |An implementation was inferred.                    |
-| DPOPT-1  |Info    |    1 |Optimizing datapath logic.                         |
-| DPOPT-2  |Info    |    1 |Done optimizing datapath logic.                    |
-| DPOPT-3  |Info    |    1 |Implementing datapath configurations.              |
-| DPOPT-4  |Info    |    1 |Done implementing datapath configurations.         |
-| DPOPT-6  |Info    |    1 |Pre-processed datapath logic.                      |
-| ELAB-1   |Info    |    1 |Elaborating Design.                                |
-| ELAB-3   |Info    |    1 |Done Elaborating Design.                           |
-| GB-6     |Info    |    2 |A datapath component has been ungrouped.           |
-| LBR-155  |Info    |    6 |Mismatch in unateness between 'timing_sense'       |
-|          |        |      | attribute and the function.                       |
-|          |        |      |The 'timing_sense' attribute will be respected.    |
-| LBR-162  |Info    |   17 |Both 'pos_unate' and 'neg_unate' timing_sense arcs |
-|          |        |      | have been processed.                              |
-|          |        |      |Setting the 'timing_sense' to non_unate.           |
-| LBR-412  |Info    |    5 |Created nominal operating condition.               |
-|          |        |      |The nominal operating condition is represented,    |
-|          |        |      | either by the nominal PVT values specified in the |
-|          |        |      | library source                                    |
-|          |        |      | (via nom_process,nom_voltage and nom_temperature  |
-|          |        |      | respectively)                                     |
-|          |        |      | , or by the default PVT values (1.0,1.0,1.0).     |
-| PHYS-12  |Warning |    4 |The variant range of wire parameters is too large. |
-|          |        |      | An example of wire parameters are, a WIDTH for    |
-|          |        |      | layer, PITCH for layer, MINSPACING for layers,    |
-|          |        |      | etc.                                              |
-|          |        |      |Check the consistency of the parameters, and see   |
-|          |        |      | if you can ignore this message or you're using    |
-|          |        |      | different LEF file with wrong parameters.         |
-| PHYS-13  |Warning |    4 |The value of the wire parameter is too big.        |
-|          |        |      |Check the consistency of the specified wire        |
-|          |        |      | parameter.                                        |
-| PHYS-14  |Warning |    4 |The value of the wire parameter is too small.      |
-|          |        |      |Check the consistency of the specified wire        |
-|          |        |      | parameter.                                        |
-| PHYS-15  |Warning |   30 |Missing wire parameter.                            |
-|          |        |      |Check the wire parameter in LEF technology files.  |
-| PHYS-25  |Warning |    5 |Minimum width of layer in LEF does not match       |
-|          |        |      | minimum width of layer in cap table.              |
-|          |        |      |Compare the layer MinWidth of the cap_table_file   |
-|          |        |      | with the MinWidth (WIDTH)                         |
-|          |        |      | of the corresponding layer in LEF. Set the        |
-|          |        |      | attribute 'shrink_factor' to adjust the MinWidth  |
-|          |        |      | layer value in the captable file                  |
-| PHYS-106 |Warning |    2 |Site already defined before, duplicated site will  |
-|          |        |      | be ignored.                                       |
-| PHYS-129 |Info    |    9 |Via with no resistance will have a value of '0.0'  |
-|          |        |      | assigned for resistance value.                    |
-|          |        |      |If this is the expected behavior, this message can |
-|          |        |      | be ignored.                                       |
-| PHYS-279 |Warning |  434 |Physical cell not defined in library.              |
-|          |        |      |Ensure that the proper library files are available |
-|          |        |      | and have been imported.                           |
-| PHYS-752 |Info    |    1 |Partition Based Synthesis execution skipped.       |
-| SYNTH-1  |Info    |    1 |Synthesizing.                                      |
-| TIM-1000 |Info    |    1 |Multimode clock gating check is disabled.          |
---------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+|    Id    |  Sev   |Count |                                                          Message Text                                                           |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+| CDFG-372 |Info    |   20 |Bitwidth mismatch in assignment.                                                                                                 |
+|          |        |      |Review and make sure the mismatch is unintentional. Genus can possibly issue bitwidth mismatch warning for explicit assignments  |
+|          |        |      | present in RTL as-well-as for implicit assignments inferred by the tool. For example, in case of enum declaration without       |
+|          |        |      | value, the tool will implicitly assign value to the enum variables. It also issues the warning for any bitwidth mismatch that   |
+|          |        |      | appears in this implicit assignment.                                                                                            |
+| CDFG-472 |Warning |    2 |Unreachable statements for case item.                                                                                            |
+| CDFG-769 |Info    |    1 |Identified sum-of-products logic to be optimized during syn_generic.                                                             |
+| CWD-19   |Info    |   12 |An implementation was inferred.                                                                                                  |
+| DPOPT-1  |Info    |    1 |Optimizing datapath logic.                                                                                                       |
+| DPOPT-2  |Info    |    1 |Done optimizing datapath logic.                                                                                                  |
+| DPOPT-3  |Info    |    1 |Implementing datapath configurations.                                                                                            |
+| DPOPT-4  |Info    |    1 |Done implementing datapath configurations.                                                                                       |
+| DPOPT-6  |Info    |    1 |Pre-processed datapath logic.                                                                                                    |
+| ELAB-1   |Info    |    1 |Elaborating Design.                                                                                                              |
+| ELAB-3   |Info    |    1 |Done Elaborating Design.                                                                                                         |
+| GB-6     |Info    |    2 |A datapath component has been ungrouped.                                                                                         |
+| LBR-155  |Info    |    6 |Mismatch in unateness between 'timing_sense' attribute and the function.                                                         |
+|          |        |      |The 'timing_sense' attribute will be respected.                                                                                  |
+| LBR-162  |Info    |   17 |Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed.                                                          |
+|          |        |      |Setting the 'timing_sense' to non_unate.                                                                                         |
+| LBR-412  |Info    |    5 |Created nominal operating condition.                                                                                             |
+|          |        |      |The nominal operating condition is represented, either by the nominal PVT values specified in the library source                 |
+|          |        |      | (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).                     |
+| LBR-714  |Warning |    1 |Inconsistency detected among the units specified in the timing libraries being used.                                             |
+|          |        |      |Default system time/capacitance unit will be used.                                                                               |
+| PHYS-12  |Warning |    4 |The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer,        |
+|          |        |      | MINSPACING for layers, etc.                                                                                                     |
+|          |        |      |Check the consistency of the parameters, and see if you can ignore this message or you're using different LEF file with wrong    |
+|          |        |      | parameters.                                                                                                                     |
+| PHYS-13  |Warning |    4 |The value of the wire parameter is too big.                                                                                      |
+|          |        |      |Check the consistency of the specified wire parameter.                                                                           |
+| PHYS-14  |Warning |    4 |The value of the wire parameter is too small.                                                                                    |
+|          |        |      |Check the consistency of the specified wire parameter.                                                                           |
+| PHYS-15  |Warning |   30 |Missing wire parameter.                                                                                                          |
+|          |        |      |Check the wire parameter in LEF technology files.                                                                                |
+| PHYS-25  |Warning |    5 |Minimum width of layer in LEF does not match minimum width of layer in cap table.                                                |
+|          |        |      |Compare the layer MinWidth of the cap_table_file with the MinWidth (WIDTH)                                                       |
+|          |        |      | of the corresponding layer in LEF. Set the attribute 'shrink_factor' to adjust the MinWidth layer value in the captable file    |
+| PHYS-106 |Warning |    2 |Site already defined before, duplicated site will be ignored.                                                                    |
+| PHYS-129 |Info    |    9 |Via with no resistance will have a value of '0.0' assigned for resistance value.                                                 |
+|          |        |      |If this is the expected behavior, this message can be ignored.                                                                   |
+| PHYS-752 |Info    |    1 |Partition Based Synthesis execution skipped.                                                                                     |
+| SYNTH-1  |Info    |    1 |Synthesizing.                                                                                                                    |
+| TIM-1000 |Info    |    1 |Multimode clock gating check is disabled.                                                                                        |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 Current PLE settings:
 
 Aspect ratio        : 1.000
@@ -737,15 +672,13 @@ Stage : first_condense
   =================
    Message Summary
   =================
---------------------------------------------------------------------------------
-|   Id   |  Sev   |Count |                    Message Text                     |
---------------------------------------------------------------------------------
-| GB-6   |Info    |    2 |A datapath component has been ungrouped.             |
-| ST-136 |Warning |    1 |Not obtained requested number of super thread        |
-|        |        |      | servers.                                            |
-|        |        |      |The requested number of cpus are not available on    |
-|        |        |      | machine.                                            |
---------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+|   Id   |  Sev   |Count |                       Message Text                        |
+--------------------------------------------------------------------------------------
+| GB-6   |Info    |    2 |A datapath component has been ungrouped.                   |
+| ST-136 |Warning |    1 |Not obtained requested number of super thread servers.     |
+|        |        |      |The requested number of cpus are not available on machine. |
+--------------------------------------------------------------------------------------
  
 Global mapping target info
 ==========================
@@ -769,14 +702,14 @@ Excluded from State Retention      31        100.0
 State Retention instances           0          0.0
 --------------------------------------------------
 
-PBS_Generic_Opt-Post - Elapsed_Time 3, CPU_Time 2.9354259999999996
+PBS_Generic_Opt-Post - Elapsed_Time 3, CPU_Time 2.936807999999999
 stamp 'PBS_Generic_Opt-Post' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) | 100.0(100.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) | 100.0(100.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -786,11 +719,11 @@ stamp 'PBS_Generic-Postgen HBO Optimizations' being created for table 'pbs_debug
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) | 100.0(100.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) | 100.0(100.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -801,7 +734,7 @@ Info: CPU time includes time of parent + longest thread
 ##>----------------------------------------------------------------------------------------
 ##>STEP                           Elapsed       WNS       TNS     Insts      Area    Memory
 ##>----------------------------------------------------------------------------------------
-##>G:Initial                            0         -         -       242       884       663
+##>G:Initial                            0         -         -       242       884       510
 ##>G:Setup                              0         -         -         -         -         -
 ##>G:Launch ST                          0         -         -         -         -         -
 ##>G:Design Partition                   0         -         -         -         -         -
@@ -815,7 +748,7 @@ Info: CPU time includes time of parent + longest thread
 ##>G:Timer                              0         -         -         -         -         -
 ##>G:Assembly                           0         -         -         -         -         -
 ##>G:DFT                                0         -         -         -         -         -
-##>G:Const Prop                         0         -         -       287       484       802
+##>G:Const Prop                         0         -         -       287       484       510
 ##>G:Misc                               3
 ##>----------------------------------------------------------------------------------------
 ##>Total Elapsed                        3
@@ -824,7 +757,7 @@ Info    : Done synthesizing. [SYNTH-2]
         : Done synthesizing 'ps2_driver' to generic gates.
       flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
 UM:*                                                                   syn_gen
-@file(genus_ps2.tcl) 34: syn_map
+@file(genus_ps2.tcl) 38: syn_map
 ##Generic Timing Info for library domain: _default_ typical gate delay: 20.2 ps std_slew: 4.3 ps std_load: 1.0 fF
 Current PLE settings:
 
@@ -899,13 +832,13 @@ stamp 'PBS_TechMap-Start' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) | 100.0( 75.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) | 100.0( 75.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:01) |   0.0( 25.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Start
+ 00:00:19(00:00:29) |  00:00:00(00:00:01) |   0.0( 25.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -915,15 +848,15 @@ stamp 'PBS_TechMap-Premap HBO Optimizations' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) | 100.0( 75.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) | 100.0( 75.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:01) |   0.0( 25.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Start
+ 00:00:19(00:00:29) |  00:00:00(00:00:01) |   0.0( 25.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Premap HBO Optimizations
+ 00:00:19(00:00:29) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Premap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -1028,16 +961,15 @@ Stage : global_incr_map
   =================
    Message Summary
   =================
---------------------------------------------------------------------------------
-|    Id    |Sev  |Count |                    Message Text                      |
---------------------------------------------------------------------------------
-| LBR-155  |Info |    2 |Mismatch in unateness between 'timing_sense'          |
-|          |     |      | attribute and the function.                          |
-|          |     |      |The 'timing_sense' attribute will be respected.       |
-| PHYS-752 |Info |    1 |Partition Based Synthesis execution skipped.          |
-| SYNTH-2  |Info |    1 |Done synthesizing.                                    |
-| SYNTH-4  |Info |    1 |Mapping.                                              |
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+|    Id    |Sev  |Count |                              Message Text                               |
+---------------------------------------------------------------------------------------------------
+| LBR-155  |Info |    2 |Mismatch in unateness between 'timing_sense' attribute and the function. |
+|          |     |      |The 'timing_sense' attribute will be respected.                          |
+| PHYS-752 |Info |    1 |Partition Based Synthesis execution skipped.                             |
+| SYNTH-2  |Info |    1 |Done synthesizing.                                                       |
+| SYNTH-4  |Info |    1 |Mapping.                                                                 |
+---------------------------------------------------------------------------------------------------
  
 Global incremental optimization status
 ======================================
@@ -1069,22 +1001,22 @@ State Retention instances           0          0.0
 --------------------------------------------------
 
 INFO: skipping constant propagation
-PBS_Techmap-Global Mapping - Elapsed_Time 1, CPU_Time 1.7358550000000008
+PBS_Techmap-Global Mapping - Elapsed_Time 1, CPU_Time 1.735718000000002
 stamp 'PBS_Techmap-Global Mapping' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) |  62.8( 60.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) |  69.4( 60.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:01) |   0.0( 20.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Start
+ 00:00:19(00:00:29) |  00:00:00(00:00:01) |   0.0( 20.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Premap HBO Optimizations
+ 00:00:19(00:00:29) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Premap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:23(00:03:22) |  00:00:01(00:00:01) |  37.2( 20.0) |   19:54:01 (Oct30) |  802.6 MB | PBS_Techmap-Global Mapping
+ 00:00:21(00:00:30) |  00:00:01(00:00:01) |  30.6( 20.0) |   20:27:26 (Oct30) |  807.5 MB | PBS_Techmap-Global Mapping
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -1093,58 +1025,59 @@ Warning : Command 'commit_power_intent' cannot proceed as there is no power inte
         : Command 'commit_power_intent' requires a valid power_intent to be loaded.
 Info    : Wrote formal verification information. [CFM-5]
         : Wrote 'fv/ps2_driver/fv_map.fv.json' for netlist 'fv/ps2_driver/fv_map.v.gz'.
+Info    : Existing dofile found. Copied as fv/ps2_driver/rtl_to_fv_map.do~.
 Info    : Wrote dofile. [CFM-1]
         : Dofile is 'fv/ps2_driver/rtl_to_fv_map.do'.
         : Alias mapping flow is enabled.
-PBS_TechMap-Datapath Postmap Operations - Elapsed_Time 2, CPU_Time 1.0
+PBS_TechMap-Datapath Postmap Operations - Elapsed_Time 2, CPU_Time 2.0
 stamp 'PBS_TechMap-Datapath Postmap Operations' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) |  51.8( 42.9) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) |  51.3( 42.9) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:01) |   0.0( 14.3) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Start
+ 00:00:19(00:00:29) |  00:00:00(00:00:01) |   0.0( 14.3) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Premap HBO Optimizations
+ 00:00:19(00:00:29) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Premap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:23(00:03:22) |  00:00:01(00:00:01) |  30.6( 14.3) |   19:54:01 (Oct30) |  802.6 MB | PBS_Techmap-Global Mapping
+ 00:00:21(00:00:30) |  00:00:01(00:00:01) |  22.6( 14.3) |   20:27:26 (Oct30) |  807.5 MB | PBS_Techmap-Global Mapping
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:01(00:00:02) |  17.6( 28.6) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Datapath Postmap Operations
+ 00:00:23(00:00:32) |  00:00:02(00:00:02) |  26.1( 28.6) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Datapath Postmap Operations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
 Info: CPU time includes time of parent + longest thread
-PBS_TechMap-Postmap HBO Optimizations - Elapsed_Time 0, CPU_Time -0.0011359999999989157
+PBS_TechMap-Postmap HBO Optimizations - Elapsed_Time 0, CPU_Time -0.00040700000000271075
 stamp 'PBS_TechMap-Postmap HBO Optimizations' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) |  51.8( 42.9) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) |  51.3( 42.9) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:01) |   0.0( 14.3) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Start
+ 00:00:19(00:00:29) |  00:00:00(00:00:01) |   0.0( 14.3) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Premap HBO Optimizations
+ 00:00:19(00:00:29) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Premap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:23(00:03:22) |  00:00:01(00:00:01) |  30.6( 14.3) |   19:54:01 (Oct30) |  802.6 MB | PBS_Techmap-Global Mapping
+ 00:00:21(00:00:30) |  00:00:01(00:00:01) |  22.6( 14.3) |   20:27:26 (Oct30) |  807.5 MB | PBS_Techmap-Global Mapping
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:01(00:00:02) |  17.6( 28.6) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Datapath Postmap Operations
+ 00:00:23(00:00:32) |  00:00:02(00:00:02) |  26.1( 28.6) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Datapath Postmap Operations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:00(00:00:00) |  -0.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap HBO Optimizations
+ 00:00:23(00:00:32) |  00:00:00(00:00:00) |  -0.0(  0.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Postmap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
 Info: CPU time includes time of parent + longest thread
  Doing ConstProp on design:ps2_driver ... 
 
-IOPT-REDREM: Performing redundancy removal: Detected 0 redundant wires. CPU time 0.007 seconds.
+IOPT-REDREM: Performing redundancy removal: Detected 0 redundant wires. CPU time 0.010 seconds.
 
 Time taken by ConstProp Step: 00:00:00
 PBS_TechMap-Postmap Clock Gating - Elapsed_Time 0, CPU_Time 0.0
@@ -1152,23 +1085,23 @@ stamp 'PBS_TechMap-Postmap Clock Gating' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) |  51.8( 42.9) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) |  51.3( 42.9) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:01) |   0.0( 14.3) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Start
+ 00:00:19(00:00:29) |  00:00:00(00:00:01) |   0.0( 14.3) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Premap HBO Optimizations
+ 00:00:19(00:00:29) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Premap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:23(00:03:22) |  00:00:01(00:00:01) |  30.6( 14.3) |   19:54:01 (Oct30) |  802.6 MB | PBS_Techmap-Global Mapping
+ 00:00:21(00:00:30) |  00:00:01(00:00:01) |  22.6( 14.3) |   20:27:26 (Oct30) |  807.5 MB | PBS_Techmap-Global Mapping
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:01(00:00:02) |  17.6( 28.6) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Datapath Postmap Operations
+ 00:00:23(00:00:32) |  00:00:02(00:00:02) |  26.1( 28.6) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Datapath Postmap Operations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:00(00:00:00) |  -0.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap HBO Optimizations
+ 00:00:23(00:00:32) |  00:00:00(00:00:00) |  -0.0(  0.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Postmap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap Clock Gating
+ 00:00:23(00:00:32) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Postmap Clock Gating
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -1228,30 +1161,30 @@ Operation                   Area   Slacks      Slack    Trans      Cap
         setup_dn         0  (        0 /        0 )  0.00
         mb_split         0  (        0 /        0 )  0.00
 
-PBS_TechMap-Postmap Cleanup - Elapsed_Time 0, CPU_Time 0.9990079999999999
+PBS_TechMap-Postmap Cleanup - Elapsed_Time 1, CPU_Time -0.0011909999999986098
 stamp 'PBS_TechMap-Postmap Cleanup' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) |  44.0( 42.9) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) |  51.3( 37.5) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:01) |   0.0( 14.3) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Start
+ 00:00:19(00:00:29) |  00:00:00(00:00:01) |   0.0( 12.5) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Premap HBO Optimizations
+ 00:00:19(00:00:29) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Premap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:23(00:03:22) |  00:00:01(00:00:01) |  26.0( 14.3) |   19:54:01 (Oct30) |  802.6 MB | PBS_Techmap-Global Mapping
+ 00:00:21(00:00:30) |  00:00:01(00:00:01) |  22.6( 12.5) |   20:27:26 (Oct30) |  807.5 MB | PBS_Techmap-Global Mapping
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:01(00:00:02) |  15.0( 28.6) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Datapath Postmap Operations
+ 00:00:23(00:00:32) |  00:00:02(00:00:02) |  26.1( 25.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Datapath Postmap Operations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:00(00:00:00) |  -0.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap HBO Optimizations
+ 00:00:23(00:00:32) |  00:00:00(00:00:00) |  -0.0(  0.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Postmap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap Clock Gating
+ 00:00:23(00:00:32) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Postmap Clock Gating
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:25(00:03:24) |  00:00:00(00:00:00) |  15.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap Cleanup
+ 00:00:23(00:00:33) |  00:00:00(00:00:01) |  -0.0( 12.5) |   20:27:29 (Oct30) |  807.5 MB | PBS_TechMap-Postmap Cleanup
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -1261,27 +1194,27 @@ stamp 'PBS_Techmap-Post_MBCI' being created for table 'pbs_debug'
 
   Total Time (Wall) |  Stage Time (Wall)  |   % (Wall)   |    Date - Time     |  Memory   | Stage
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:19(00:03:17) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:56 (Oct30) |  663.6 MB | PBS_Generic-Start
+ 00:00:16(00:00:25) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:21 (Oct30) |  510.1 MB | PBS_Generic-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:02(00:00:03) |  44.0( 42.9) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic_Opt-Post
+ 00:00:19(00:00:28) |  00:00:03(00:00:03) |  51.3( 37.5) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic_Opt-Post
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:20) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:53:59 (Oct30) |  802.6 MB | PBS_Generic-Postgen HBO Optimizations
+ 00:00:19(00:00:28) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:24 (Oct30) |  510.1 MB | PBS_Generic-Postgen HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:01) |   0.0( 14.3) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Start
+ 00:00:19(00:00:29) |  00:00:00(00:00:01) |   0.0( 12.5) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Start
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:21(00:03:21) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:00 (Oct30) |  802.6 MB | PBS_TechMap-Premap HBO Optimizations
+ 00:00:19(00:00:29) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:25 (Oct30) |  510.1 MB | PBS_TechMap-Premap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:23(00:03:22) |  00:00:01(00:00:01) |  26.0( 14.3) |   19:54:01 (Oct30) |  802.6 MB | PBS_Techmap-Global Mapping
+ 00:00:21(00:00:30) |  00:00:01(00:00:01) |  22.6( 12.5) |   20:27:26 (Oct30) |  807.5 MB | PBS_Techmap-Global Mapping
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:01(00:00:02) |  15.0( 28.6) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Datapath Postmap Operations
+ 00:00:23(00:00:32) |  00:00:02(00:00:02) |  26.1( 25.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Datapath Postmap Operations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:00(00:00:00) |  -0.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap HBO Optimizations
+ 00:00:23(00:00:32) |  00:00:00(00:00:00) |  -0.0(  0.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Postmap HBO Optimizations
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:24(00:03:24) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap Clock Gating
+ 00:00:23(00:00:32) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:28 (Oct30) |  807.5 MB | PBS_TechMap-Postmap Clock Gating
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:25(00:03:24) |  00:00:00(00:00:00) |  15.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_TechMap-Postmap Cleanup
+ 00:00:23(00:00:33) |  00:00:00(00:00:01) |  -0.0( 12.5) |   20:27:29 (Oct30) |  807.5 MB | PBS_TechMap-Postmap Cleanup
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
- 00:00:25(00:03:24) |  00:00:00(00:00:00) |   0.0(  0.0) |   19:54:03 (Oct30) |  802.6 MB | PBS_Techmap-Post_MBCI
+ 00:00:23(00:00:33) |  00:00:00(00:00:00) |   0.0(  0.0) |   20:27:29 (Oct30) |  807.5 MB | PBS_Techmap-Post_MBCI
 --------------------+---------------------+--------------+--------------------+-----------+----------------------
 Number of threads: 8 * 1   (id: pbs_debug, time_info v1.57)
 Info: (*N*) indicates data that was populated from previously saved time_info database
@@ -1291,8 +1224,8 @@ Info: CPU time includes time of parent + longest thread
 ##>----------------------------------------------------------------------------------------
 ##>STEP                           Elapsed       WNS       TNS     Insts      Area    Memory
 ##>----------------------------------------------------------------------------------------
-##>M:Initial                            0         -         -       287       484       802
-##>M:Pre Cleanup                        0         -         -       287       484       802
+##>M:Initial                            0         -         -       287       484       510
+##>M:Pre Cleanup                        0         -         -       287       484       510
 ##>M:Setup                              0         -         -         -         -         -
 ##>M:Launch ST                          0         -         -         -         -         -
 ##>M:Design Partition                   0         -         -         -         -         -
@@ -1306,20 +1239,20 @@ Info: CPU time includes time of parent + longest thread
 ##>M:Timer                              0         -         -         -         -         -
 ##>M:Assembly                           0         -         -         -         -         -
 ##>M:DFT                                0         -         -         -         -         -
-##>M:DP Operations                      2         -         -       191       375       802
-##>M:Const Prop                         0      6856         0       191       375       802
-##>M:Cleanup                            0      6856         0       191       375       802
-##>M:MBCI                               0         -         -       191       375       802
+##>M:DP Operations                      2         -         -       191       375       807
+##>M:Const Prop                         0      6856         0       191       375       807
+##>M:Cleanup                            1      6856         0       191       375       807
+##>M:MBCI                               0         -         -       191       375       807
 ##>M:Const Gate Removal                 0         -         -         -         -         -
 ##>M:Misc                               1
 ##>----------------------------------------------------------------------------------------
-##>Total Elapsed                        3
+##>Total Elapsed                        4
 ##>========================================================================================
 Info    : Done mapping. [SYNTH-5]
         : Done mapping 'ps2_driver'.
       flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
 UM:*                                                                   syn_map
-@file(genus_ps2.tcl) 35: syn_opt
+@file(genus_ps2.tcl) 39: syn_opt
 Current PLE settings:
 
 Aspect ratio        : 1.000
@@ -1392,7 +1325,7 @@ Incremental optimization status
                            Total  Weighted      Neg      Max       Max 
 Operation                   Area   Slacks      Slack    Trans      Cap 
  init_iopt                   540        0         0         0        0
-IOPT-REDREM: Performing redundancy removal: Detected 0 redundant wires. CPU time 0.010 seconds.
+IOPT-REDREM: Performing redundancy removal: Detected 0 redundant wires. CPU time 0.009 seconds.
 
 -------------------------------------------------------------------------------
  const_prop                  540        0         0         0        0
@@ -1626,7 +1559,7 @@ Operation                   Area   Slacks      Slack    Trans      Cap
          rem_inv         0  (        0 /        0 )  0.00
         merge_bi         0  (        0 /        0 )  0.00
       rem_inv_qb        17  (        0 /        0 )  0.00
-    seq_res_area         2  (        0 /        0 )  0.43
+    seq_res_area         2  (        0 /        0 )  0.44
         io_phase         0  (        0 /        0 )  0.00
        gate_comp         0  (        0 /        0 )  0.01
        gcomp_mog         0  (        0 /        0 )  0.01
@@ -1745,33 +1678,31 @@ Stage : incr_opt
   =================
    Message Summary
   =================
---------------------------------------------------------------------------------
-|   Id    |  Sev   |Count |                   Message Text                     |
---------------------------------------------------------------------------------
-| CFM-1   |Info    |    1 |Wrote dofile.                                       |
-| CFM-5   |Info    |    1 |Wrote formal verification information.              |
-| CPI-506 |Warning |    1 |Command 'commit_power_intent' cannot proceed as     |
-|         |        |      | there is no power intent loaded.                   |
-| LBR-155 |Info    |    2 |Mismatch in unateness between 'timing_sense'        |
-|         |        |      | attribute and the function.                        |
-|         |        |      |The 'timing_sense' attribute will be respected.     |
-| PA-7    |Info    |    4 |Resetting power analysis results.                   |
-|         |        |      |All computed switching activities are removed.      |
-| SYNTH-5 |Info    |    1 |Done mapping.                                       |
-| SYNTH-7 |Info    |    1 |Incrementally optimizing.                           |
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+|   Id    |  Sev   |Count |                                  Message Text                                   |
+-------------------------------------------------------------------------------------------------------------
+| CFM-1   |Info    |    1 |Wrote dofile.                                                                    |
+| CFM-5   |Info    |    1 |Wrote formal verification information.                                           |
+| CPI-506 |Warning |    1 |Command 'commit_power_intent' cannot proceed as there is no power intent loaded. |
+| LBR-155 |Info    |    2 |Mismatch in unateness between 'timing_sense' attribute and the function.         |
+|         |        |      |The 'timing_sense' attribute will be respected.                                  |
+| PA-7    |Info    |    4 |Resetting power analysis results.                                                |
+|         |        |      |All computed switching activities are removed.                                   |
+| SYNTH-5 |Info    |    1 |Done mapping.                                                                    |
+| SYNTH-7 |Info    |    1 |Incrementally optimizing.                                                        |
+-------------------------------------------------------------------------------------------------------------
 Info    : Done incrementally optimizing. [SYNTH-8]
         : Done incrementally optimizing 'ps2_driver'.
       flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
 UM:*                                                                   syn_opt
-@file(genus_ps2.tcl) 37: write_hdl > $DESIGN.netlist.v
-@file(genus_ps2.tcl) 38: write_sdc > ${DESIGN}_out.sdc
+@file(genus_ps2.tcl) 42: write_hdl > $DESIGN.netlist.v
+@file(genus_ps2.tcl) 43: write_sdc > ${DESIGN}_out.sdc
 Finished SDC export (command execution time mm:ss (real) = 00:00).
-@file(genus_ps2.tcl) 40: report clocks > ./$DESIGN.clocks.rep
-@file(genus_ps2.tcl) 41: report timing > ./$DESIGN.timing.rep
-@file(genus_ps2.tcl) 42: report area   > ./$DESIGN.area.rep
-@file(genus_ps2.tcl) 43: report gates  > ./$DESIGN.gates.rep
-@file(genus_ps2.tcl) 44: report power  > ./$DESIGN.power.rep
+@file(genus_ps2.tcl) 45: report clocks > ./$DESIGN.clocks.rep
+@file(genus_ps2.tcl) 46: report timing > ./$DESIGN.timing.rep
+@file(genus_ps2.tcl) 47: report area   > ./$DESIGN.area.rep
+@file(genus_ps2.tcl) 48: report gates  > ./$DESIGN.gates.rep
+@file(genus_ps2.tcl) 49: report power  > ./$DESIGN.power.rep
 Info    : Joules engine is used. [RPT-16]
         : Joules engine is being used for the command report_power.
 Info   : ACTP-0001 [ACTPInfo] Activity propagation started for stim#0 netlist
@@ -1799,10 +1730,10 @@ Info   : PWRA-0002 Finished power computation.
 Info   : PWRA-0007 [PwrInfo] Completed successfully.
        : Info=6, Warn=2, Error=0, Fatal=0
 Output file: ./ps2_driver.power.rep
-@file(genus_ps2.tcl) 47: report_area
+@file(genus_ps2.tcl) 51: report_area
 ============================================================
   Generated by:           Genus(TM) Synthesis Solution 21.12-s068_1
-  Generated on:           Oct 30 2026  07:54:05 pm
+  Generated on:           Oct 30 2026  08:27:31 pm
   Module:                 ps2_driver
   Operating conditions:   PVT_0P7V_25C 
   Interconnect mode:      global
@@ -1812,10 +1743,10 @@ Output file: ./ps2_driver.power.rep
  Instance  Module  Cell Count  Cell Area  Net Area   Total Area 
 ----------------------------------------------------------------
 ps2_driver                191    375.348   164.769      540.117 
-@file(genus_ps2.tcl) 48: report_timing -fields "timing_point cell delay arrival"
+@file(genus_ps2.tcl) 52: report_timing -fields "timing_point cell delay arrival"
 ============================================================
   Generated by:           Genus(TM) Synthesis Solution 21.12-s068_1
-  Generated on:           Oct 30 2026  07:54:05 pm
+  Generated on:           Oct 30 2026  08:27:31 pm
   Module:                 ps2_driver
   Operating conditions:   PVT_0P7V_25C 
   Interconnect mode:      global
@@ -1855,7 +1786,7 @@ Exceptions/Constraints:
   data_p[0]          (port)                      0      44 
 #----------------------------------------------------------
 
-@file(genus_ps2.tcl) 49: report_power -unit mW -format %.4f
+@file(genus_ps2.tcl) 53: report_power -unit mW -format %.4f
 Info    : Joules engine is used. [RPT-16]
         : Joules engine is being used for the command report_power.
 Instance: /ps2_driver
